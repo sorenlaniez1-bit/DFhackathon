@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
-    <link rel="stylesheet" href="style.php">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="login-container">
@@ -134,5 +134,31 @@
             </a>
         </div>
     </div>
+
+    <!-- Bouton de scroll pour les personnes âgées -->
+    <div class="scroll-button-container">
+        <button class="scroll-down-btn" onclick="scrollDown()" aria-label="Descendre">
+            ▼ Appuyez ici pour défiler
+        </button>
+    </div>
+
+    <script>
+        function scrollDown() {
+            window.scrollBy({
+                top: 200,
+                behavior: 'smooth'
+            });
+        }
+
+        // Afficher/cacher le bouton selon la position du scroll
+        window.addEventListener('scroll', function() {
+            const btn = document.querySelector('.scroll-down-btn');
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+                btn.style.display = 'none';
+            } else {
+                btn.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
