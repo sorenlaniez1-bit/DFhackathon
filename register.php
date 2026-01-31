@@ -135,8 +135,15 @@
         </div>
     </div>
 
-    <!-- Bouton de scroll pour les personnes âgées -->
-    <div class="scroll-button-container">
+    <!-- Bouton de scroll vers le haut en haut -->
+    <div class="scroll-button-container-top">
+        <button class="scroll-up-btn" onclick="scrollUp()" aria-label="Remonter" style="display: none;">
+            ▲ Haut
+        </button>
+    </div>
+
+    <!-- Bouton de scroll vers le bas en bas -->
+    <div class="scroll-button-container-bottom">
         <button class="scroll-down-btn" onclick="scrollDown()" aria-label="Descendre">
             ▼ Appuyez ici pour défiler
         </button>
@@ -150,13 +157,30 @@
             });
         }
 
-        // Afficher/cacher le bouton selon la position du scroll
+        function scrollUp() {
+            window.scrollBy({
+                top: -200,
+                behavior: 'smooth'
+            });
+        }
+
+        // Afficher/cacher les boutons selon la position du scroll
         window.addEventListener('scroll', function() {
-            const btn = document.querySelector('.scroll-down-btn');
+            const downBtn = document.querySelector('.scroll-down-btn');
+            const upBtn = document.querySelector('.scroll-up-btn');
+            
+            // Bouton vers le bas : caché si on est tout en bas
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
-                btn.style.display = 'none';
+                downBtn.style.display = 'none';
             } else {
-                btn.style.display = 'block';
+                downBtn.style.display = 'block';
+            }
+            
+            // Bouton vers le haut : visible si on a scrollé
+            if (window.scrollY > 50) {
+                upBtn.style.display = 'block';
+            } else {
+                upBtn.style.display = 'none';
             }
         });
     </script>
