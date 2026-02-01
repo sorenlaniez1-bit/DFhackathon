@@ -79,8 +79,13 @@
 
     <script>
         function scrollDown() {
-            window.scrollBy({
-                top: 200,
+            // Descendre de 200px ou jusqu'en bas si c'est moins
+            const maxScroll = document.body.offsetHeight - window.innerHeight;
+            const currentScroll = window.scrollY;
+            const nextScroll = Math.min(currentScroll + 200, maxScroll);
+            
+            window.scrollTo({
+                top: nextScroll,
                 behavior: 'smooth'
             });
         }
@@ -98,7 +103,7 @@
             const upBtn = document.querySelector('.scroll-up-btn');
             
             // Bouton vers le bas : caché si on est tout en bas
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 10) {
                 downBtn.style.display = 'none';
             } else {
                 downBtn.style.display = 'block';
