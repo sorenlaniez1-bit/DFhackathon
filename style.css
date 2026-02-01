@@ -1,113 +1,258 @@
-/*  CORPS DE LA PAGE */
-body{
-    background-color: #F5F1E8; /* beige doux */
-    color: #222222; /* noir doux */
-    margin: 0;
-    font-family: Arial, Verdana, sans-serif;
-    line-height: 1.6;
-    overflow-x: hidden;
+/* --------------------------------PAGE D'ACCUEIL-------------------------------------- */
+/* header */
+.debut {
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 0;
 }
 
-/*  TITRE  */
-.debut h1{
-    background-color: #EAF2F8; /* bleu pâle */
-    color: #1F3A5F; /* bleu marine */
-    text-align: center;
-    font-size: 36px;
-    padding: 20px;
-}
 
-/*  MENU  */
-.menu ul{
+.menu {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    padding: 20px;
 }
+
+
 .connexion {
-    display: flex;     
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;     
-}
-
-.connexion li{
     list-style: none;
-    flex: 1;               /* chaque li prend la même largeur */
-    min-width: 150px;      /* largeur minimale pour ne pas rétrécir */
-    max-width: 200px;      /* largeur maximale */
-}
-@media screen and (max-width: 1024px) {
-    .connexion {
-        flex-direction: column;  
-        align-items: center;
-    }
-    /* largeur adaptée tablette */
-    .connexion li {
-        max-width: 80%;        
-    }
-}
-/* largeur adaptée mobile */
-@media screen and (max-width: 768px) {
-    .connexion li {
-        max-width: 90%;        
-    }
+    display: flex;           
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
 }
 
-.connexion a{
-    width: 200px;
+
+.connexion li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.connexion a {
     text-decoration: none;
-    padding: 14px 0;       
-    font-size: 22px; 
+    color: #000;
     font-weight: bold;
-    color: #FFFFFF;
-    background-color: #3A6EA5; 
-    border-radius: 10px;
-    display: block;
-    text-align: center;   
+    font-size: 18px;
+    padding: 8px 12px;
+    transition: color 0.3s;
 }
 
 .connexion a:hover,
-.connexion a:focus{
-    background-color: #2C4A6E;
-    outline: 3px solid #FFD966; 
+.connexion a:focus {
+    color: #3A6EA5; 
 }
 
-/*  DESCRIPTION  */
-.description{
+
+.connexion img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Tablette */
+@media screen and (max-width: 1024px) {
+    .connexion {
+        flex-direction: column; 
+        gap: 20px;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+    .connexion {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .connexion a {
+        font-size: 16px; /* un peu plus petit */
+    }
+
+    .connexion img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* titre et paragraphe */
+h2 , h3, .pts p{
+    color: orange;
+    font-size: 30px;
+}
+.color_para{
+    font-size: 25px;
+} 
+.pts{
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+}
+/* icone */
+.connexion img{
+    width: 32px;
+    height: 32px;
+} 
+
+/* menu */
+/* .debut{
+    position:fixed;
+}  */
+
+/* liste */
+.connexion{
+    position: relative;
+    left: 20px;
+    display: grid;
+} 
+/* Le contenue de la page */
+.contenue{
+    align-items: center;
+}
+/* .conteneur{
+    text-align: center;
+    margin: 20px;
+    position: relative;
+    left: 12px;
+} */
+
+.contenue h2{
+    text-align: center;
+    font-size: xx-large;
+}
+
+/* section mission */
+
+.aide_mission{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+/* l'alligne des missions sur un tablette  */
+@media screen and (max-width: 1024px) { 
+    .aide_mission {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* l'alligne des missions sur un mobile */
+@media screen and (max-width: 768px) {
+    .aide_mission {
+        grid-template-columns: 1fr;
+    }
+}
+.types_mission {
     display: flex;
-    justify-content: center;
-    margin: 40px 0;
+    justify-content: center; 
+    margin-top: 40px;
 }
 
-.description figure{
-    width: 600px;
-    border: 2px solid #333333;
-    background-color: #FFFFFF;
-    text-align: center;
-    padding: 20px;
+/* article */
+.aide_mission{
+    position: relative;
+    left: 50px;
+}
+.type {
+    background: #f5f5f5;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.des img{
-    width: 100%;
-    height: auto;
+/* liste */
+li{
+    list-style-type: none;
+}
+.type_choix {
+    list-style: none;
+    display: flex;             
+    align-items: center;        
+    gap: 20px;                  
+    margin: 0;
+    padding: 0;
 }
 
-/* DESCRIPTION TEXTE  */
-figcaption{
-    font-size: 24px;
+/* lien */
+.connexion li a{
+    font-size: 19px;
+    font-weight: bolder;
+    color: white;
+}
+.type_choix a {
+    text-decoration: none;
     font-weight: bold;
-    color: #1F3A5F;
-    background-color: #E8F0EB; /* vert clair */
-    padding: 15px;
-    margin-top: 10px;
+    color: #000;
 }
 
-/*  PIED DE AL PAGE - */
-.pied{
-    background-color: #EAF2F8;
-    color: #1F3A5F;
+
+.type_choix label {
+    font-weight: bold;
+}
+
+/* input */
+.type_choix input {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.type_choix > li {
+    position: relative;
+}
+
+
+.mission_dispo {
+    list-style: none;
+    position: absolute;
+    top: 100%;         
+    left: 0;
+    margin: 0;
+    padding: 10px 0;
+    background: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    display: none;     
+    min-width: 150px;
+}
+
+
+.type_choix > li:hover .mission_dispo {
+    display: block;
+}
+
+
+.mission_dispo li {
+    padding: 8px 15px;
+    position: relative;
+    z-index: 1;
+    background-color: white;
+}
+
+
+.mission_dispo a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+}
+
+
+.mission_dispo li:hover {
+    background: #e0e0e0;
+}
+
+.mission_choissi{
+    background-color:#E8F0EB ;
+    margin: 20px;
+    border-radius: 20px 0 20px 0;
+    position: relative;
+    left: 40px;
+    width: 400px;
+    height: 460px;
+    padding: 2px;
+    border: 1px solid black;
+} 
+
+.mission_choissi h3, .mission_choissi p{
     text-align: center;
-    font-size: 20px;
-    padding: 15px;
 }
