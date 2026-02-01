@@ -25,7 +25,7 @@ if ($password !== $password_confirm) {
 // Connexion à la base de données
 try {
     $dsn = 'mysql:host=192.168.1.62;dbname=hackaton;charset=utf8mb4';
-    $pdo = new PDO($dsn, 'root', '', [
+    $pdo = new PDO($dsn, 'root_remote', 'root', [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
     ]);
