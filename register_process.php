@@ -46,10 +46,10 @@ try {
     
     // Insérer le nouvel utilisateur
     $insertStmt = $pdo->prepare(
-        'INSERT INTO utilisateurs (username, password, nom, prenom, age, ville, role, date_creation) 
-         VALUES (?, ?, ?, ?, ?, ?, ?, NOW())'
+        'INSERT INTO utilisateurs (username, password, nom, prenom, age, ville, date_creation) 
+         VALUES (?, ?, ?, ?, ?, ?, NOW())'
     );
-    $insertStmt->execute([$username, $password_hash, $nom, $prenom, $age, $ville, $role]);
+    $insertStmt->execute([$username, $password_hash, $nom, $prenom, $age, $ville]);
     
     // Rediriger vers la page de connexion avec message de succès
     header('Location: login.php?success=1');
