@@ -1,0 +1,478 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Verdana, sans-serif;
+    background: #0f1729;
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.8;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 480px;
+    background: #1a2332;
+    border: 3px solid #3d5a80;
+    border-radius: 8px;
+    padding: 50px 40px;
+    box-shadow: none;
+    margin: 40px auto;
+}
+
+.header-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+    letter-spacing: 0;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #6b7280;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="datetime-local"],
+textarea,
+select {
+    width: 100%;
+    padding: 16px 18px;
+    border: 3px solid #3d5a80;
+    border-radius: 8px;
+    font-size: 18px;
+    background: #1a2332;
+    transition: all 0.3s ease;
+    font-family: Arial, Verdana, sans-serif;
+    color: #ffffff;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #60a5fa;
+    background: #1a2332;
+    outline: 3px solid #60a5fa;
+    box-shadow: none;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.helper-text {
+    font-size: 13px;
+    color: #9ca3af;
+    margin-top: 5px;
+}
+
+.error-message {
+    background: #dc2626;
+    color: #fff;
+    padding: 14px 18px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border: 2px solid #991b1b;
+}
+
+.success-message {
+    background: #059669;
+    color: #fff;
+    padding: 14px 18px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border: 2px solid #047857;
+}
+
+button,
+.login-button,
+.register-button {
+    width: 100%;
+    padding: 18px 0;
+    background: #3d5a80;
+    color: #ffffff;
+    border: 3px solid #3d5a80;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    box-shadow: none;
+    font-family: Arial, Verdana, sans-serif;
+}
+
+button:hover,
+.login-button:hover,
+.register-button:hover {
+    background: #60a5fa;
+    color: #ffffff;
+    border-color: #60a5fa;
+    transform: none;
+    box-shadow: none;
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.register-link {
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    color: #60a5fa;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.register-link:hover {
+    color: #764ba2;
+}
+
+/* Container principal */
+.demandes-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.demandes-container h1 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 36px;
+}
+
+/* Cards */
+.demande-card {
+    background: #1a2332;
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    border: 2px solid #3d5a80;
+}
+
+.demande-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.demande-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #3d5a80;
+}
+
+.demande-titre {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* Badges de statut */
+.statut-badge {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.statut-ouverte {
+    background: #059669;
+    color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.statut-prise_en_charge {
+    background: #2563eb;
+    color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.statut-terminee {
+    background: #7c3aed;
+    color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.statut-depassee {
+    background: #dc2626;
+    color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.demande-info {
+    margin: 12px 0;
+    color: #ffffff;
+    font-size: 17px;
+}
+
+.demande-info strong {
+    color: #60a5fa;
+    font-weight: 600;
+}
+
+.propositions-badge {
+    background: #d97706;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-block;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Boutons */
+.btn-voir-propositions {
+    background: #2563eb;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn-voir-propositions:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-terminer {
+    background: #059669;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn-terminer:hover {
+    background: #047857;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-modifier {
+    background: #d97706;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    margin-right: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn-modifier:hover {
+    background: #b45309;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-supprimer {
+    background: #dc2626;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn-supprimer:hover {
+    background: #991b1b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.actions-buttons {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #3d5a80;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.no-demandes {
+    text-align: center;
+    padding: 60px 20px;
+    color: #ffffff;
+    background: #1a2332;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 2px solid #3d5a80;
+}
+
+.no-demandes p {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.btn-retour {
+    background: #3d5a80;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.btn-retour:hover {
+    background: #60a5fa;
+    transform: translateX(-4px);
+}
+
+/* RESPONSIVE - Mobile First */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+        font-size: 16px;
+    }
+    
+    h1 {
+        font-size: 32px;
+    }
+    
+    .login-container {
+        padding: 30px 20px;
+        margin: 20px auto;
+    }
+    
+    button,
+    .login-button,
+    .register-button {
+        padding: 16px 0;
+        font-size: 18px;
+    }
+    
+    .demandes-container {
+        padding: 10px;
+    }
+    
+    .demandes-container h1 {
+        font-size: 28px;
+    }
+    
+    .demande-card {
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .demande-titre {
+        font-size: 20px;
+    }
+    
+    .demande-info {
+        font-size: 15px;
+    }
+    
+    .actions-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn-voir-propositions,
+    .btn-terminer,
+    .btn-modifier,
+    .btn-supprimer {
+        width: 100%;
+        margin-right: 0;
+    }
+    
+    input,
+    textarea,
+    select {
+        font-size: 16px;
+    }
+    
+    label {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 28px;
+    }
+    
+    body {
+        font-size: 15px;
+    }
+    
+    .demandes-container h1 {
+        font-size: 24px;
+    }
+    
+    .demande-card {
+        padding: 15px;
+    }
+}
