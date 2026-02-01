@@ -22,43 +22,42 @@ if ($password !== $password_confirm) {
     exit;
 }
 
+// Connexion à la base de données
 try {
-    // Connexion à la base de données
-    $pdo = new PDO('mysql:host=192.168.1.62;dbname=hackaton;charset=utf8mb4', 'root', '');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $dsn = 'mysql:host=192.168.1.62;dbname=hackaton;charset=utf8mb4';
+    $pdo = new PDO($dsn, 'root', '', [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ]);
     
     // Vérifier si l'utilisateur existe déjà
-    $stmt = $pdo->prepare('SELECT id FROM utilisateurs WHERE username = :username');
-    $stmt->execute(['username' => $username]);
+    $checkStmt = $pdo->prepare('SELECT COUNT(*) as count FROM utilisateurs WHERE username = ?');
+    $checkStmt->execute([$username]);
+    $result = $checkStmt->fetch();
     
-    if ($stmt->fetch()) {
-        // L'utilisateur existe déjà
+    if ($result['count'] > 0) {
         header('Location: register.php?error=exists');
         exit;
     }
     
     // Hasher le mot de passe
     $password_hash = password_hash($password, PASSWORD_DEFAULT);
+    $role = 'user';
     
-    // Insérer le nouvel utilisateur avec tous les champs
-    $stmt = $pdo->prepare('INSERT INTO utilisateurs (username, password, nom, prenom, age, ville, role, date_creation) VALUES (:username, :password, :nom, :prenom, :age, :ville, "user", NOW())');
-    $stmt->execute([
-        'username' => $username,
-        'password' => $password_hash,
-        'nom' => $nom,
-        'prenom' => $prenom,
-        'age' => $age,
-        'ville' => $ville
-    ]);
+    // Insérer le nouvel utilisateur
+    $insertStmt = $pdo->prepare(
+        'INSERT INTO utilisateurs (username, password, nom, prenom, age, ville, role, date_creation) 
+         VALUES (?, ?, ?, ?, ?, ?, ?, NOW())'
+    );
+    $insertStmt->execute([$username, $password_hash, $nom, $prenom, $age, $ville, $role]);
     
     // Rediriger vers la page de connexion avec message de succès
     header('Location: login.php?success=1');
     exit;
     
 } catch (PDOException $e) {
-    // Erreur de connexion à la base de données
-    error_log($e->getMessage());
-    header('Location: register.php?error=1');
-    exit;
+    error_log('Erreur SQL: ' . $e->getMessage());
+    die('Erreur de base de données: ' . $e->getMessage());
 }
 ?>
+
